@@ -44,20 +44,20 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.filePath = QtGui.QFileDialog.getOpenFileName(self,'*.')
 #		print('filepath : ', self.filePath)
 		self.fname = str(self.filePath)
-		print self.fname
-		print type(self.fname)
+		print (self.fname)
+		print (type(self.fname))
 		
 		self.console_output2.setText(self.fname)
 		
-		print '-----------Loading the Model-----------------------'
+		print ('-----------Loading the Model-----------------------')
 		self.model=load_model(self.fname)
-		print '-----------Loaded successfully---------------------'
+		print ('-----------Loaded successfully---------------------')
 		ctypes.windll.user32.MessageBoxA(0, "Model Loaded Successfuly", "Message", 1)
 #		self.model.summary()
 		from keras.utils.visualize_util import plot
 		graph = plot(self.model,to_file='model-summary.png', show_shapes=True)
 	def modSummary(self):
-		print'-------------model summary--------------------------'
+		print('-------------model summary--------------------------')
 		self.model.summary()
 		#model_img = QtGui.QPixmap('model-summary.png')
 		#self.displayOutput.setScaledContents(True)
@@ -84,7 +84,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		output_shape = np.shape(self.activations[0])
 		featuremap_size = np.shape(self.activations[0][0][0])
 		num_of_featuremaps = (np.shape(self.activations[0][0]))[0]
-		print num_of_featuremaps
+		print (num_of_featuremaps)
 		layer_info=self.model.layers[int(self.layer)].get_config()
 		layer_name=layer_info['name']
 		input_shape=self.model.layers[int(self.layer)].input_shape
@@ -125,8 +125,8 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
 		self.imagePath = QtGui.QFileDialog.getOpenFileName(self,'*.')
 #		print('filepath : ', self.filePath)
 		self.imageName = str(self.imagePath)
-		print self.imageName
-		print type(self.imageName)
+		print (self.imageName)
+		print (type(self.imageName))
 		image = QtGui.QPixmap(self.imagePath)
 		#self.displayInput.setScaledContents(True)
 		self.displayInput.setPixmap(image)
