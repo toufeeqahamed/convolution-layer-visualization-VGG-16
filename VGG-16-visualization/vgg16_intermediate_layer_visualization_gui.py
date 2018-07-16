@@ -9,7 +9,7 @@ Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 import cv2,ctypes
 import time
 import numpy as np
-import winsound
+#import winsound
 import matplotlib.pyplot as plt
 from keras import backend as K
 
